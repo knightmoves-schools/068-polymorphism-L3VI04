@@ -1,39 +1,41 @@
+// index.js
+
 class Cat {
-    say() {
-        return 'meow';
-    }
+  say() {
+    return "meow";
+  }
 }
 
 class Dog {
-    talk() {
-        return 'woof';
-    }
+  // renamed from talk → say
+  say() {
+    return "woof";
+  }
 }
 
 class Bird {
-    sing() {
-        return 'chirp';
-    }
+  // renamed from sing → say
+  say() {
+    return "chirp";
+  }
 }
 
 let animals = [
-    new Cat(),
-    new Dog(),
-    new Bird()
-]
+  new Cat(),
+  new Dog(),
+  new Bird()
+];
 
 function listen(animals) {
-    let sounds = [];
+  let sounds = [];
 
-    animals.forEach(animal => {
-        if (animal instanceof Cat) {
-            sounds.push(animal.say());
-        } else if (animal instanceof Dog) {
-            sounds.push(animal.talk());
-        } else if (animal instanceof Bird) {
-            sounds.push(animal.sing());
-        }
-    });
+  // no need for if statements, just call say()
+  animals.forEach(animal => {
+    sounds.push(animal.say());
+  });
 
-    return sounds;
+  return sounds;
 }
+
+// Example usage:
+console.log(listen(animals)); // ["meow", "woof", "chirp"]
